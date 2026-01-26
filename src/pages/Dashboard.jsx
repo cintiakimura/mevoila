@@ -45,8 +45,8 @@ export default function Dashboard() {
   return (
     <div className="space-y-8">
       <div>
-        <h1 className="text-3xl font-bold text-white mb-2">Welcome to Campaign-in-a-Box</h1>
-        <p className="text-gray-400">Manage your IoT automotive training campaigns and leads</p>
+        <h1 className="text-3xl font-bold text-white mb-2">Bem-vindo ao Me Voilà</h1>
+        <p className="text-gray-400">Gerencie seus clientes, campanhas e documentação</p>
       </div>
 
       {/* Stats Grid */}
@@ -83,32 +83,32 @@ export default function Dashboard() {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         <div className="bg-[#2a2a2a] rounded-xl p-6 border border-[#333333]">
           <h2 className="text-lg font-bold text-white mb-4 flex items-center gap-2">
-            <TrendingUp className="w-5 h-5 text-[#00c600]" />
-            Recent Activity
+            <TrendingUp className="w-5 h-5 text-[#005BBB]" />
+            Atividade Recente
           </h2>
           <div className="space-y-3">
             <div className="flex items-center justify-between py-2 border-b border-[#333333]">
-              <span className="text-gray-300 text-sm">New leads imported</span>
-              <span className="text-[#00c600] font-medium">{leads.filter(l => l.status === 'new').length}</span>
+              <span className="text-gray-300 text-sm">Novos leads importados</span>
+              <span className="text-[#005BBB] font-medium">{leads.filter(l => l.status === 'new').length}</span>
             </div>
             <div className="flex items-center justify-between py-2 border-b border-[#333333]">
-              <span className="text-gray-300 text-sm">Emails sent today</span>
-              <span className="text-[#00c600] font-medium">{emails.filter(e => e.folder === 'sent').length}</span>
+              <span className="text-gray-300 text-sm">Emails enviados hoje</span>
+              <span className="text-[#005BBB] font-medium">{emails.filter(e => e.folder === 'sent').length}</span>
             </div>
             <div className="flex items-center justify-between py-2">
-              <span className="text-gray-300 text-sm">Campaign completion rate</span>
-              <span className="text-[#00c600] font-medium">87%</span>
+              <span className="text-gray-300 text-sm">Taxa de conclusão de campanha</span>
+              <span className="text-[#005BBB] font-medium">87%</span>
             </div>
           </div>
         </div>
 
         <div className="bg-[#2a2a2a] rounded-xl p-6 border border-[#333333]">
           <h2 className="text-lg font-bold text-white mb-4 flex items-center gap-2">
-            <Calendar className="w-5 h-5 text-[#00c600]" />
-            Upcoming Webinars
+            <Calendar className="w-5 h-5 text-[#005BBB]" />
+            Próximos Webinars
           </h2>
           {upcomingWebinars === 0 ? (
-            <p className="text-gray-400 text-sm">No upcoming webinars scheduled</p>
+            <p className="text-gray-400 text-sm">Nenhum webinar agendado</p>
           ) : (
             <div className="space-y-3">
               {webinars
@@ -122,8 +122,8 @@ export default function Dashboard() {
                         {new Date(webinar.start_time).toLocaleDateString()}
                       </p>
                     </div>
-                    <span className="text-[#00c600] text-xs">
-                      {webinar.attendees?.length || 0} registered
+                    <span className="text-[#005BBB] text-xs">
+                      {webinar.attendees?.length || 0} inscritos
                     </span>
                   </div>
                 ))}

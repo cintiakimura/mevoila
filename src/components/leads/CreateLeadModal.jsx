@@ -149,10 +149,10 @@ export default function CreateLeadModal({ isOpen, onClose, onSuccess, prefilledC
             <Button
               type="submit"
               disabled={isSaving}
-              className="flex-1 bg-[#00c600] hover:bg-[#00dd00] text-[#212121] font-medium"
+              className="flex-1 bg-[#005BBB] hover:bg-[#004499] text-white font-medium"
             >
               <Save className="w-4 h-4 mr-2" />
-              {isSaving ? 'Creating...' : 'Create Lead'}
+              {isSaving ? 'Criando...' : 'Criar Lead'}
             </Button>
             <Button
               type="button"
