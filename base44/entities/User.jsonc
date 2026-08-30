@@ -1,0 +1,28 @@
+{
+  "name": "User",
+  "type": "object",
+  "properties": {
+    "role": {
+      "type": "string",
+      "enum": [
+        "admin",
+        "manager",
+        "user"
+      ],
+      "default": "user",
+      "description": "User role in the system"
+    },
+    "team": {
+      "type": "string",
+      "description": "Team or department name"
+    },
+    "manager_id": {
+      "type": "string",
+      "description": "Reference to manager user ID"
+    }
+  },
+  "required": [
+    "team",
+    "manager_id"
+  ]
+}

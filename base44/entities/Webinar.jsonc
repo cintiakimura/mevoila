@@ -1,0 +1,60 @@
+{
+  "name": "Webinar",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "Webinar title"
+    },
+    "description": {
+      "type": "string",
+      "description": "Webinar description"
+    },
+    "start_time": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Start date and time"
+    },
+    "end_time": {
+      "type": "string",
+      "format": "date-time",
+      "description": "End date and time"
+    },
+    "host_name": {
+      "type": "string",
+      "description": "Name of the host"
+    },
+    "meeting_link": {
+      "type": "string",
+      "description": "Meeting URL (Google Meet, Zoom, etc.)"
+    },
+    "max_attendees": {
+      "type": "number",
+      "default": 100,
+      "description": "Maximum number of attendees"
+    },
+    "attendees": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "registered_at": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "description": "List of registered attendees"
+    }
+  },
+  "required": [
+    "title",
+    "start_time"
+  ]
+}

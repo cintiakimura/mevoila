@@ -1,0 +1,170 @@
+{
+  "name": "Campaign",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Campaign name"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "draft",
+        "active",
+        "completed",
+        "paused"
+      ],
+      "default": "draft",
+      "description": "Campaign status"
+    },
+    "language": {
+      "type": "string",
+      "enum": [
+        "English",
+        "Spanish",
+        "French",
+        "German",
+        "Portuguese"
+      ],
+      "default": "English",
+      "description": "Campaign language"
+    },
+    "target_audience": {
+      "type": "string",
+      "description": "Target audience description"
+    },
+    "email_subject": {
+      "type": "string",
+      "description": "Email subject line"
+    },
+    "email_body": {
+      "type": "string",
+      "description": "Email body content"
+    },
+    "media_type": {
+      "type": "string",
+      "enum": [
+        "image",
+        "presentation",
+        "video_url"
+      ],
+      "description": "Type of media attached"
+    },
+    "media_url": {
+      "type": "string",
+      "description": "URL of campaign media (image, presentation, or video)"
+    },
+    "sent_count": {
+      "type": "number",
+      "default": 0,
+      "description": "Number of emails sent"
+    },
+    "open_rate": {
+      "type": "number",
+      "default": 0,
+      "description": "Email open rate percentage"
+    },
+    "click_rate": {
+      "type": "number",
+      "default": 0,
+      "description": "Click-through rate percentage"
+    },
+    "conversion_rate": {
+      "type": "number",
+      "default": 0,
+      "description": "Conversion rate percentage"
+    },
+    "send_time": {
+      "type": "string",
+      "description": "Time when campaign was sent (for timing analysis)"
+    },
+    "ab_test_variant": {
+      "type": "string",
+      "enum": [
+        "A",
+        "B",
+        "control"
+      ],
+      "description": "A/B test variant identifier"
+    },
+    "followup_sequences": {
+      "type": "array",
+      "description": "Automated follow-up email sequences",
+      "items": {
+        "type": "object",
+        "properties": {
+          "trigger_status": {
+            "type": "string",
+            "enum": [
+              "new",
+              "contacted",
+              "interested",
+              "scheduled"
+            ],
+            "description": "Lead status that triggers this sequence"
+          },
+          "delay_days": {
+            "type": "number",
+            "description": "Days to wait after status change"
+          },
+          "email_subject": {
+            "type": "string",
+            "description": "Follow-up email subject"
+          },
+          "email_body": {
+            "type": "string",
+            "description": "Follow-up email body"
+          }
+        }
+      }
+    }
+  },
+  "required": [
+    "name"
+  ],
+  "rls": {
+    "create": {
+      "user_condition": {
+        "role": {
+          "$ne": "guest"
+        }
+      }
+    },
+    "read": {
+      "$or": [
+        {
+          "created_by": "{{user.email}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    },
+    "update": {
+      "$or": [
+        {
+          "created_by": "{{user.email}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    },
+    "delete": {
+      "$or": [
+        {
+          "created_by": "{{user.email}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    }
+  }
+}

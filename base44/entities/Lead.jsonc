@@ -1,0 +1,88 @@
+{
+  "name": "Lead",
+  "type": "object",
+  "properties": {
+    "full_name": {
+      "type": "string",
+      "description": "Full name of the lead"
+    },
+    "email": {
+      "type": "string",
+      "format": "email",
+      "description": "Email address"
+    },
+    "company": {
+      "type": "string",
+      "description": "Company name"
+    },
+    "client_id": {
+      "type": "string",
+      "description": "Reference to Client entity"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "new",
+        "contacted",
+        "interested",
+        "scheduled",
+        "closed"
+      ],
+      "default": "new",
+      "description": "Lead status in the sales pipeline"
+    },
+    "language_preference": {
+      "type": "string",
+      "enum": [
+        "English",
+        "Spanish",
+        "French",
+        "German",
+        "Portuguese"
+      ],
+      "default": "English",
+      "description": "Preferred communication language"
+    },
+    "notes": {
+      "type": "string",
+      "description": "Additional notes about the lead"
+    },
+    "last_status_change": {
+      "type": "string",
+      "format": "date-time",
+      "description": "When the status was last changed"
+    },
+    "next_followup_date": {
+      "type": "string",
+      "format": "date-time",
+      "description": "When the next follow-up is scheduled"
+    },
+    "followup_history": {
+      "type": "array",
+      "description": "History of follow-up emails sent",
+      "items": {
+        "type": "object",
+        "properties": {
+          "date": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "subject": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "campaign_id": {
+      "type": "string",
+      "description": "Reference to Campaign that acquired this lead"
+    }
+  },
+  "required": [
+    "full_name",
+    "email"
+  ]
+}

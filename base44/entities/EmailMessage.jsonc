@@ -1,0 +1,49 @@
+{
+  "name": "EmailMessage",
+  "type": "object",
+  "properties": {
+    "subject": {
+      "type": "string",
+      "description": "Email subject"
+    },
+    "body": {
+      "type": "string",
+      "description": "Email body content"
+    },
+    "from_email": {
+      "type": "string",
+      "format": "email",
+      "description": "Sender email"
+    },
+    "to_email": {
+      "type": "string",
+      "format": "email",
+      "description": "Recipient email"
+    },
+    "folder": {
+      "type": "string",
+      "enum": [
+        "inbox",
+        "sent",
+        "draft",
+        "trash"
+      ],
+      "default": "inbox",
+      "description": "Email folder"
+    },
+    "is_read": {
+      "type": "boolean",
+      "default": false,
+      "description": "Read status"
+    },
+    "date": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Email date"
+    }
+  },
+  "required": [
+    "subject",
+    "to_email"
+  ]
+}
